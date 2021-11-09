@@ -36,7 +36,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
   switch(displayOption){
     case "info":
@@ -84,10 +84,111 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
-
+  let eyeColor = promptFor("What is the person's eye color?", autoValid);
+  
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return foundPerson;
 }
 
 //TODO: add other trait filter functions here.
+
+function searchByGender(people){
+  let gender = promptFor("What is the person's gender?", autoValid);
+  
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.gender === gender){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return foundPerson;
+  
+  }
+
+function searchByDob(people){
+  let dob = promptFor("What is the person's dob?", autoValid);
+  
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.dob === dob){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return foundPerson;
+}
+
+function searchByHeight(people){
+  let height = promptFor("What is the person's height?", autoValid);
+  
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.height === height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return foundPerson;
+}
+
+function searchByWeight(people){
+  let weight = promptFor("What is the person's weight?", autoValid);
+  
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.weight === weight){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return foundPerson;
+}
+
+function searchByOccupation(people){
+  let occupation = promptFor("What is the person's occupation?", autoValid);
+  
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.occupation === occupation){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return foundPerson;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
