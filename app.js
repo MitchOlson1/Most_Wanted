@@ -10,31 +10,60 @@
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
+  
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
       break;
     case 'no':
       searchType = promptFor("Do you know a trait of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-      searchResults = searchByTraits(people);
-      case 'yes'
-      searchOption = promptFor(
-        "What traits would you like to search? (input numbers)+ /n" 
-        "1. Eye Color" /n" +
+    case 'yes':
+      let searchOption = promptFor(
+        "What traits would you like to search? (input numbers) \n" +
+        "1. Eye Color \n" + 
+        "2. Gender \n" + 
+        "3. Height \n" + 
+        "4. Weight \n" + 
+        "5. Occupation \n", 
+      autoValid
+      );
 
+      let filteredSearch = people;
 
-
-      )
+      searchOption.split(' ');
+        if(searchOption.includes(1));{
+          filteredSearch = searchByEyeColor(filteredSearch);
+          }
+          displayPeople(filteredSearch)
+        if(searchOption.includes(2));{
+          filteredSearch = searchByGender(filteredSearch);
+          }
+          displayPeople(filteredSearch)
+        if(searchOption.includes(3));{
+          filteredSearch = searchByHeight(filteredSearch);
+          }
+          displayPeople(filteredSearch)
+        if(searchOption.includes(4));{
+          filteredSearch = searchByWeight(filteredSearch);
+          }
+          displayPeople(filteredSearch)
+        if(searchOption.includes(5));{
+          filteredSearch = searchByOccupation(filteredSearch);
+          }
+          displayPeople(filteredSearch)
+        
   app(people); // restart app
     break;
   
-  
-  
-  
-  
-  
-  
-  }}
+  }
+}
+
+  // case 'yes': 
+  //     searchType = promptFor("Do you know the person's eye color? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  //   case 'yes': 
+  //     searchResults = searchByEyeColor(people);
+  //   case 'no':
+  //     searchType = promptFor("Do you know a trait of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
@@ -103,9 +132,11 @@ function searchByName(people){
   // TODO: find the person single person object using the name they entered.
   return foundPerson;
 }
+
 function searchByTraits(people){
 
 }
+
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
