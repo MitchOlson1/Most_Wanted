@@ -16,17 +16,39 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
-      function app(people){
-        let searchType = promptFor("Do you know the trait of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-        let searchResults;
-        switch(searchType){
-          case 'yes':
-            searchResults = searchByName(people);
-            break;
-          case 'no':
+  let searchType = promptFor("Do you know the Gender of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchResults;
+  switch(searchType){
+    case 'yes':
+      searchResults = searchByGender(people);
+      break;
+    case 'no':
+  let searchType = promptFor("Do you know the Height of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchResults;
+  switch(searchType){
+    case 'yes':
+      searchResults = searchByHeight(people);
+      break;
+    case 'no':
+  let searchType = promptFor("Do you know the Weight of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchResults;
+  switch(searchType){
+    case 'yes':
+      searchResults = searchByWeight(people);
+      break;
+    case 'no':
+  let searchType = promptFor("Do you know the Occupation of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchResults;
+  switch(searchType){
+    case 'yes':
+      searchResults = searchByOccupation(people);
+      break;
+    case 'no':
+      
+      
     app(people); // restart app
       break;
-  }
+  }}}}}
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
@@ -47,6 +69,13 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
+    console.log("First name:" + person[0].firstname);
+    console.log("Last name:" + person[0].lastname);
+    console.log("Gender:" + person[0].gender);
+    console.log("Height:" + person[0].height);
+    console.log("Weight:" + person[0].weight);
+    console.log("Occupation:" + person[0].occupation);
+
     break;
     case "family":
     // TODO: get person's family
@@ -120,19 +149,6 @@ function searchByGender(people){
   
   }
 
-function searchByDob(people){
-  let dob = promptFor("What is the person's dob?", autoValid);
-  
-  let foundDob = people.filter(function(potentialMatch){
-    if(potentialMatch.dob === dob){
-      return true;
-    }
-    else{
-      return false;
-    }
-  })
-    return foundDob;
-}
 
 function searchByHeight(people){
   let height = promptFor("What is the person's height?", autoValid);
