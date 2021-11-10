@@ -15,44 +15,30 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
-  let searchType = promptFor("Do you know the Gender of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  let searchResults;
-  switch(searchType){
-    case 'yes':
-      searchResults = searchByGender(people);
-      break;
-    case 'no':
-  let searchType = promptFor("Do you know the Height of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  let searchResults;
-  switch(searchType){
-    case 'yes':
-      searchResults = searchByHeight(people);
-      break;
-    case 'no':
-  let searchType = promptFor("Do you know the Weight of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  let searchResults;
-  switch(searchType){
-    case 'yes':
-      searchResults = searchByWeight(people);
-      break;
-    case 'no':
-  let searchType = promptFor("Do you know the Occupation of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  let searchResults;
-  switch(searchType){
-    case 'yes':
-      searchResults = searchByOccupation(people);
-      break;
-    case 'no':
-      
-      
-    app(people); // restart app
-      break;
-  }}}}}
+      searchType = promptFor("Do you know a trait of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+      searchResults = searchByTraits(people);
+      case 'yes'
+      searchOption = promptFor(
+        "What traits would you like to search? (input numbers)+ /n" 
+        "1. Eye Color" /n" +
+
+
+
+      )
+  app(people); // restart app
+    break;
+  
+  
+  
+  
+  
+  
+  
+  }}
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
-}
+
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
@@ -69,12 +55,13 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    console.log("First name:" + person[0].firstname);
-    console.log("Last name:" + person[0].lastname);
+    console.log("First name:" + person[0].firstName);
+    console.log("Last name:" + person[0].lastName);
     console.log("Gender:" + person[0].gender);
     console.log("Height:" + person[0].height);
     console.log("Weight:" + person[0].weight);
     console.log("Occupation:" + person[0].occupation);
+    console.log("Eye Color:" + person[0].eyeColor);
 
     break;
     case "family":
@@ -116,7 +103,9 @@ function searchByName(people){
   // TODO: find the person single person object using the name they entered.
   return foundPerson;
 }
+function searchByTraits(people){
 
+}
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
