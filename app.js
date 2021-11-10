@@ -33,23 +33,23 @@ function app(people){
       searchOption.split(' ');
         if(searchOption.includes(1));{
           filteredSearch = searchByEyeColor(filteredSearch);
-          }
+          };
           displayPeople(filteredSearch);
         if(searchOption.includes(2));{
           filteredSearch = searchByGender(filteredSearch);
-          }
+          };
           displayPeople(filteredSearch);
         if(searchOption.includes(3));{
           filteredSearch = searchByHeight(filteredSearch);
-          }
+          };
           displayPeople(filteredSearch);
         if(searchOption.includes(4));{
           filteredSearch = searchByWeight(filteredSearch);
-          }
+          };
           displayPeople(filteredSearch);
         if(searchOption.includes(5));{
           filteredSearch = searchByOccupation(filteredSearch);
-          }
+          };
           displayPeople(filteredSearch);
         return
   app(people); // restart app
@@ -95,6 +95,8 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
+    console.log("Parents:" + person[0].parents);
+    console.log("Spouse:" + person[0].currentSpouse);
     break;
     case "descendants":
     // TODO: get person's descendants
