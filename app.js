@@ -34,24 +34,24 @@ function app(people){
         if(searchOption.includes(1));{
           filteredSearch = searchByEyeColor(filteredSearch);
           }
-          displayPeople(filteredSearch)
+          displayPeople(filteredSearch);
         if(searchOption.includes(2));{
           filteredSearch = searchByGender(filteredSearch);
           }
-          displayPeople(filteredSearch)
+          displayPeople(filteredSearch);
         if(searchOption.includes(3));{
           filteredSearch = searchByHeight(filteredSearch);
           }
-          displayPeople(filteredSearch)
+          displayPeople(filteredSearch);
         if(searchOption.includes(4));{
           filteredSearch = searchByWeight(filteredSearch);
           }
-          displayPeople(filteredSearch)
+          displayPeople(filteredSearch);
         if(searchOption.includes(5));{
           filteredSearch = searchByOccupation(filteredSearch);
           }
-          displayPeople(filteredSearch)
-        
+          displayPeople(filteredSearch);
+        return
   app(people); // restart app
     break;
   
