@@ -31,26 +31,24 @@ function app(people){
       let filteredSearch = people;
 
       searchOption.split(' ');
-        if(searchOption.includes(1));{
-          filteredSearch = searchByEyeColor(filteredSearch);
-          };
-          displayPeople(filteredSearch);
-        if(searchOption.includes(2));{
-          filteredSearch = searchByGender(filteredSearch);
-          };
-          displayPeople(filteredSearch);
-        if(searchOption.includes(3));{
-          filteredSearch = searchByHeight(filteredSearch);
-          };
-          displayPeople(filteredSearch);
-        if(searchOption.includes(4));{
-          filteredSearch = searchByWeight(filteredSearch);
-          };
-          displayPeople(filteredSearch);
-        if(searchOption.includes(5));{
-          filteredSearch = searchByOccupation(filteredSearch);
-          };
-          displayPeople(filteredSearch);
+        if(searchOption.includes(1)) {
+          filteredSearch = searchByEyeColor(filteredSearch)
+        }
+        if(searchOption.includes(2)){
+            filteredSearch = searchByGender(filteredSearch)
+        }
+        if(searchOption.includes(3)) {
+            filteredSearch = searchByHeight(filteredSearch)
+        }
+        
+        if(searchOption.includes(4)){
+            filteredSearch = searchByWeight(filteredSearch)
+        }
+          
+        if(searchOption.includes(5)){
+            filteredSearch = searchByOccupation(filteredSearch)
+        }
+          displayPeople(filteredSearch)
         return
   app(people); // restart app
     break;
