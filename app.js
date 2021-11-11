@@ -8,7 +8,7 @@
 
 // app is the function called to start the entire application
 function app(people){
-  let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchType = promptFor("Enter 'yes' if you would like to search by name. If you would like to search by traits, enter 'single' or 'multiple'", autoValid).toLowerCase();
   let searchResults;
   
   switch(searchType){
@@ -16,8 +16,6 @@ function app(people){
       searchResults = searchByName(people);
       console.log(searchResults);
       break;
-    case 'no':
-      searchType = promptFor("Do you want to search by a single trait or multiple? Enter 'single' or 'multiple'", autoValid).toLowerCase();
     case 'single':
       searchResults = searchBySingleTrait(people);
       console.log(searchResults);
@@ -33,12 +31,12 @@ app(people); // restart app
     break;
   
   }
-}
 
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 
+}
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
@@ -55,13 +53,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    console.log("First name:" + person[0].firstName);
-    console.log("Last name:" + person[0].lastName);
-    console.log("Gender:" + person[0].gender);
-    console.log("Height:" + person[0].height);
-    console.log("Weight:" + person[0].weight);
-    console.log("Occupation:" + person[0].occupation);
-    console.log("Eye Color:" + person[0].eyeColor);
+    console.log(displayPerson(0))
 
     break;
     case "family":
@@ -142,43 +134,50 @@ function searchBySingleTrait(people){
         if(searchOption.includes(5)){
             filteredSearch = searchByOccupation(filteredSearch)
         }
+
+        //add check for 1 result
         return displayPeople(filteredSearch)
       }
 }
 
 function searchByMultipleTraits(people){
-  let searchType = promptFor("Do you know the person's eye color? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let filteredSearch = people;
-  let searchResults;
-  switch(searchType){
-    case 'yes':
-      searchResults = searchByEyeColor(filteredSearch);
-      console.log(searchResults);
-    case 'no':
-      searchType = promptFor("Do you know the person's gender? Enter 'yes' or 'no'", yesNo).toLowerCase();
-    case 'yes':
-      searchResults = searchByGender(filteredSearch);
-      console.log(searchResults);
-    case 'no':
-      searchType = promptFor("Do you know the person's height? Enter 'yes' or 'no'", yesNo).toLowerCase();
-    case 'yes':
-      searchResults = searchByHeight(filteredSearch);
-      console.log(searchResults);
-    case 'no':
-      searchType = promptFor("Do you know the person's weight? Enter 'yes' or 'no'", yesNo).toLowerCase();
-    case 'yes':
-      searchResults = searchByWeight(filteredSearch);
-      console.log(searchResults);
-    case 'no':
-      searchType = promptFor("Do you know the person's occupation? Enter 'yes' or 'no'", yesNo).toLowerCase();
-    case 'yes':
-        searchResults = searchByOccupation(filteredSearch);
-        console.log(searchResults);
-    default:
-      console.log(displayPeople());
+  
+  let searchType = promptFor("Do you know the person's eye color? Enter 'yes' or 'no'", yesNo).toLowerCase();
 
+    if(searchType.toLowerCase() === 'yes'){
+      filteredSearch = searchByEyeColor(filteredSearch);
+      console.log(filteredSearch);
+    }
+   
+  searchType = promptFor("Do you know the person's gender? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    if(searchType.toLowerCase() === 'yes'){
+      filteredSearch = searchByGender(filteredSearch);
+      console.log(filteredSearch);
+    }
+
+  searchType = promptFor("Do you know the person's weight? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    if(searchType.toLowerCase() === 'yes'){
+      filteredSearch = searchByWeight(filteredSearch);
+      console.log(filteredSearch);
+    }
+
+  searchType = promptFor("Do you know the person's height? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    if(searchType.toLowerCase() === 'yes'){
+      filteredSearch = searchByHeight(filteredSearch);
+      console.log(filteredSearch);
+    }
+    
+  searchType = promptFor("Do you know the person's occupation? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    if(searchType.toLowerCase() === 'yes'){
+      filteredSearch = searchByOccupation(filteredSearch);
+      console.log(filteredSearch);
+    }
+  // add check for one result
+  displayPeople(filteredSearch);
+  return filteredSearch
   }
-  }
+
 
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
@@ -278,8 +277,14 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Gender:" + person.gender + "\n";
+  personInfo += "Height:" + person.height + "\n";
+  personInfo +=  "Weight:" + person.weight + "\n";
+  personInfo +=  "Occupation:" + person.occupation + "\n";
+  personInfo +=  "Eye Color:" + person.eyeColor + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
+  return personInfo
 }
 
 //#endregion
