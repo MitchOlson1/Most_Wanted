@@ -53,7 +53,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    console.log(displayPerson(0))
+    console.log(displayPerson(person[0]))
 
     break;
     case "family":
