@@ -32,7 +32,6 @@ app(people); // restart app
   
   }
 
-  
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 
@@ -58,8 +57,8 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
-    console.log("Parents:" + person[0].parents);
-    console.log("Spouse:" + person[0].currentSpouse);
+    console.log("Spouse: " + searchForSpouse(person[0], people));
+    console.log("Parent(s):" + searchForParents(person[0], people));
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -286,6 +285,39 @@ function displayPerson(person){
   alert(personInfo);
   return personInfo
 }
+
+
+function searchForSpouse(person,people){
+  
+  let foundSpouse = people.filter(function(potentialMatch){
+    if(potentialMatch.currentSpouse === person.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  alert(foundSpouse)  
+  return foundSpouse;
+  
+  }
+
+  function searchForParents(person,people){
+  
+    let foundParents = people.filter(function(potentialMatch){
+      if(potentialMatch.parents[0] || potentialMatch.parents[1] === person.id){
+        return true;
+      }
+     
+      else{
+        return false;
+      }
+    })
+    alert(foundParents)
+    return foundParents;
+    
+    }
+
 
 //#endregion
 
