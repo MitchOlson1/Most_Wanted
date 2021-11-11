@@ -299,10 +299,13 @@ function searchForSpouse(person,people){
       return false;
     }
   })
-  console.log(displayPeople(foundSpouse))  
+  let spouse = "Spouse: "
+    for(let i =0; i<foundSpouse.length;i++){
+      spouse += foundSpouse[i].firstName + ', '
+  console.log(spouse)  
   return foundSpouse;
   
-  }
+  }}
 
   function searchForParents(person,people){
   
@@ -315,10 +318,13 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    console.log(displayPeople(foundParents))
-    return foundParents;
+    let parents = "Parents: "
+    for(let i =0; i<foundParents.length;i++){
+      parents += foundParents[i].firstName + ', '
+    console.log(parents)
+    return parents;
     
-    }
+    }}
 
   function searchForSiblings(person,people){
     let foundSiblings = people.filter(function(potentialMatch){
@@ -332,10 +338,10 @@ function searchForSpouse(person,people){
     })
     let siblings = "Siblings: "
     for(let i =0; i<foundSiblings.length;i++){
-      siblings += foundSiblings[i].firstName + ','
+      siblings += foundSiblings[i].firstName + ', '
     }
     console.log(siblings)
-    return foundSiblings.personInfo;
+    return siblings;
   }
 
   function searchForDescendents(person,people){
@@ -348,8 +354,12 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    console.log(displayPeople(foundDescendents))
-    return foundDescendents.personInfo;
+    let descendents = "Descendents: "
+    for(let i =0; i<foundDescendents.length;i++){
+      siblings += foundDescendents[i].firstName + ', '
+    }
+    console.log(descendents)
+    return descendents;
   }
 
 //#endregion
@@ -395,5 +405,4 @@ function autoValid(input){
 function customValidation(input){
   
 }
-
-//#endregion
+//#endregion}
