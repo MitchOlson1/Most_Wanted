@@ -57,8 +57,8 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
-    console.log("Spouse: " + searchForSpouse(person[0], people));
-    console.log("Parent(s):" + searchForParents(person[0], people));
+    console.log("Spouse: " + displayPerson(searchForSpouse(person[0], people)));
+    console.log("Parent(s):" + displayPerson(searchForParents(person[0], people)));
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -313,10 +313,14 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    alert(foundParents)
-    return foundParents;
+    console.log(foundParents.personInfo)
+    return foundParents.personInfo;
     
     }
+
+  function searchForDecendents(person,people){
+    
+  }
 
 
 //#endregion
