@@ -14,16 +14,22 @@ function app(people){
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
+      console.log(searchResults);
       break;
     case 'no':
-      searchType = promptFor("Do you want to search by a single trait or multiple? Enter 'single' or 'multiple'" , autoValid).toLowerCase().trim();
-      case 'single':
+      searchType = promptFor("Do you want to search by a single trait or multiple? Enter 'single' or 'multiple'", autoValid).toLowerCase();
+    case 'single':
       searchResults = searchBySingleTrait(people);
+      console.log(searchResults);
       break;
-      case 'multiple':
+    case 'multiple':
       searchResults = searchByMultipleTraits(people);
-    return displayPeople()
-  app(people); // restart app
+      console.log(searchResults);
+      break;
+    default:
+      console.log(displayPeople());
+    
+app(people); // restart app
     break;
   
   }
@@ -103,69 +109,76 @@ function searchByName(people){
 function searchBySingleTrait(people){
   let searchType = promptFor("Do you know a trait of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
-  case 'yes':
-    let searchOption = promptFor(
-      "What traits would you like to search? (input numbers) \n" +
-      "1. Eye Color \n" + 
-      "2. Gender \n" + 
-      "3. Height \n" + 
-      "4. Weight \n" + 
-      "5. Occupation \n", 
-    autoValid
-    );
+    case 'yes':
+      let searchOption = promptFor(
+        "Which trait would you like to search? (input number) \n" +
+        "1. Eye Color \n" + 
+        "2. Gender \n" + 
+        "3. Height \n" + 
+        "4. Weight \n" + 
+        "5. Occupation \n", 
+      autoValid
+      );
 
-    let filteredSearch = people;
+      let filteredSearch = people;
 
-    searchOption.split(' ');
-      if(searchOption.includes(1)) {
-        filteredSearch = searchByEyeColor(filteredSearch)
-      }
-      if(searchOption.includes(2)){
-          filteredSearch = searchByGender(filteredSearch)
-      }
-      if(searchOption.includes(3)) {
-          filteredSearch = searchByHeight(filteredSearch)
-      }
-      
-      if(searchOption.includes(4)){
-          filteredSearch = searchByWeight(filteredSearch)
-      }
+      searchOption.split(' ');
+        if(searchOption.includes(1)) {
+          filteredSearch = searchByEyeColor(filteredSearch)
+        }
+
+        if(searchOption.includes(2)){
+            filteredSearch = searchByGender(filteredSearch)
+        }
         
-      if(searchOption.includes(5)){
-          filteredSearch = searchByOccupation(filteredSearch)
+        if(searchOption.includes(3)) {
+            filteredSearch = searchByHeight(filteredSearch)
+        }
+        
+        if(searchOption.includes(4)){
+            filteredSearch = searchByWeight(filteredSearch)
+        }
+          
+        if(searchOption.includes(5)){
+            filteredSearch = searchByOccupation(filteredSearch)
+        }
+        return displayPeople(filteredSearch)
       }
-      return displayPeople(filteredSearch)
-    }
 }
 
 function searchByMultipleTraits(people){
-let searchType = promptFor("Do you know the person's eye color? Enter 'yes' or 'no'", yesNo).toLowerCase();
-let filteredSearch = people;
-let searchResults;
-switch(searchType){
-  case 'yes':
-    searchResults = searchByEyeColor(filteredSearch);
-  case 'no':
-    searchType = promptFor("Do you know the person's gender? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  case 'yes':
-    searchResults = searchByGender(filteredSearch);
-  case 'no':
-    searchType = promptFor("Do you know the person's height? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  case 'yes':
-    searchResults = searchByHeight(filteredSearch);
-  case 'no':
-    searchType = promptFor("Do you know the person's weight? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  case 'yes':
-    searchResults = searchByWeight(filteredSearch);
-  case 'no':
-    searchType = promptFor("Do you know the person's occupation? Enter 'yes' or 'no'", yesNo).toLowerCase();
-  case 'yes':
-      searchResults = searchByOccupation(filteredSearch);
-  
-  return displayPeople(filteredSearch)
+  let searchType = promptFor("Do you know the person's eye color? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let filteredSearch = people;
+  let searchResults;
+  switch(searchType){
+    case 'yes':
+      searchResults = searchByEyeColor(filteredSearch);
+      console.log(searchResults);
+    case 'no':
+      searchType = promptFor("Do you know the person's gender? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    case 'yes':
+      searchResults = searchByGender(filteredSearch);
+      console.log(searchResults);
+    case 'no':
+      searchType = promptFor("Do you know the person's height? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    case 'yes':
+      searchResults = searchByHeight(filteredSearch);
+      console.log(searchResults);
+    case 'no':
+      searchType = promptFor("Do you know the person's weight? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    case 'yes':
+      searchResults = searchByWeight(filteredSearch);
+      console.log(searchResults);
+    case 'no':
+      searchType = promptFor("Do you know the person's occupation? Enter 'yes' or 'no'", yesNo).toLowerCase();
+    case 'yes':
+        searchResults = searchByOccupation(filteredSearch);
+        console.log(searchResults);
+    default:
+      console.log(displayPeople());
 
-}
-}
+  }
+  }
 
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
@@ -183,7 +196,7 @@ function searchByEyeColor(people){
     return foundEyeColor;
 }
 
-//TODO: add other trait filter functions here.
+//TODO: add other trait filter functions here. Done
 
 function searchByGender(people){
   let gender = promptFor("What is the person's gender?", autoValid);
@@ -242,25 +255,6 @@ function searchByOccupation(people){
   })
     return foundOccupation;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
