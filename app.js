@@ -16,10 +16,11 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      searchType = promptFor("Do you want to search by a single trait or multiple? Enter 'single' or 'multiple'" , autoValid).toLowerCase();
-    case 'single':
+      searchType = promptFor("Do you want to search by a single trait or multiple? Enter 'single' or 'multiple'" , autoValid).toLowerCase().trim();
+      case 'single':
       searchResults = searchBySingleTrait(people);
-    case 'multiple':
+      break;
+      case 'multiple':
       searchResults = searchByMultipleTraits(people);
     return displayPeople()
   app(people); // restart app
