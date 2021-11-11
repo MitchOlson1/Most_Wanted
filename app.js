@@ -299,7 +299,7 @@ function searchForSpouse(person,people){
       return false;
     }
   })
-  alert(displayPerson(foundSpouse))  
+  console.log(displayPeople(foundSpouse))  
   return foundSpouse;
   
   }
@@ -315,7 +315,7 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    console.log(displayPerson(foundParents))
+    console.log(displayPeople(foundParents))
     return foundParents;
     
     }
@@ -330,7 +330,11 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    console.log(displayPerson(foundSiblings))
+    let siblings = "Siblings: "
+    for(let i =0; i<foundSiblings.length;i++){
+      siblings += foundSiblings[i].firstName + ','
+    }
+    console.log(siblings)
     return foundSiblings.personInfo;
   }
 
@@ -344,7 +348,7 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    console.log(displayPerson(foundDescendents))
+    console.log(displayPeople(foundDescendents))
     return foundDescendents.personInfo;
   }
 
