@@ -57,11 +57,13 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
-    console.log("Spouse: " + displayPerson(searchForSpouse(person[0], people)));
-    console.log("Parent(s):" + displayPerson(searchForParents(person[0], people)));
+    console.log("Spouse: " + searchForSpouse(person[0], people));
+    console.log("Parent(s):" + searchForParents(person[0], people));
+    console.log("Sibling(s):" + searchForSiblings(person[0], people));
     break;
     case "descendants":
     // TODO: get person's descendants
+    console.log("Descendant(s):" + searchForDescendents(person[0], people));
     break;
     case "restart":
     app(people); // restart
@@ -297,7 +299,7 @@ function searchForSpouse(person,people){
       return false;
     }
   })
-  alert(foundSpouse)  
+  alert(displayPerson(foundSpouse))  
   return foundSpouse;
   
   }
@@ -313,15 +315,38 @@ function searchForSpouse(person,people){
         return false;
       }
     })
-    console.log(foundParents.personInfo)
-    return foundParents.personInfo;
+    console.log(displayPerson(foundParents))
+    return foundParents;
     
     }
 
-  function searchForDecendents(person,people){
-    
+  function searchForSiblings(person,people){
+    let foundSiblings = people.filter(function(potentialMatch){
+      if(potentialMatch.parents[0] || potentialMatch.parents[1] === person.parents[0] || person.parents[1]){
+        return true;
+      }
+     
+      else{
+        return false;
+      }
+    })
+    console.log(displayPerson(foundSiblings))
+    return foundSiblings.personInfo;
   }
 
+  function searchForDescendents(person,people){
+    let foundDescendents = people.filter(function(potentialMatch){
+      if(person.id === potentialMatch.parents[0] || potentialMatch.parents[1]){
+        return true;
+      }
+     
+      else{
+        return false;
+      }
+    })
+    console.log(displayPerson(foundDescendents))
+    return foundDescendents.personInfo;
+  }
 
 //#endregion
 
