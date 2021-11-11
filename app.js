@@ -57,13 +57,13 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
-    console.log("Spouse: " + searchForSpouse(person[0], people));
-    console.log("Parent(s):" + searchForParents(person[0], people));
-    console.log("Sibling(s):" + searchForSiblings(person[0], people));
+    console.log(searchForSpouse(person[0], people));
+    console.log(searchForParents(person[0], people));
+    console.log(searchForSiblings(person[0], people));
     break;
     case "descendants":
     // TODO: get person's descendants
-    console.log("Descendant(s):" + searchForDescendents(person[0], people));
+    console.log(searchForDescendents(person[0], people));
     break;
     case "restart":
     app(people); // restart
@@ -277,14 +277,14 @@ function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "Gender:" + person.gender + "\n";
-  personInfo += "Height:" + person.height + "\n";
-  personInfo +=  "Weight:" + person.weight + "\n";
-  personInfo +=  "Occupation:" + person.occupation + "\n";
-  personInfo +=  "Eye Color:" + person.eyeColor + "\n";
-  // TODO: finish getting the rest of the information to display.
-  alert(personInfo);
+    personInfo += "Last Name: " + person.lastName + "\n";
+    personInfo += "Gender:" + person.gender + "\n";
+    personInfo += "Height:" + person.height + "\n";
+    personInfo +=  "Weight:" + person.weight + "\n";
+    personInfo +=  "Occupation:" + person.occupation + "\n";
+    personInfo +=  "Eye Color:" + person.eyeColor + "\n";
+    // TODO: finish getting the rest of the information to display.
+  console.log(personInfo);
   return personInfo
 }
 
